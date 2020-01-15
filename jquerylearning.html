@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+        </script>
+        <script>
+            $(document).ready(function(){
+                $("#hide").click(function(){
+                    $("p").hide(1000)
+                    .css("color","orange");
+                });
+                $("#show").click(function(){
+                    $("p").show(2000)
+                    .css("color","pink");
+                });
+                $("#flip").click(function(){
+                    $("#panel").slideToggle(3000);
+                });
+                $("#start").click(function(){
+                    var box = $(".box");
+                    box.animate({height:'300px',opacity:0.4},"slow");
+                    box.animate({width:'300px',opacity:0.8},"slow");
+                    box.animate({height:'100px',opacity:0.4},"slow");
+                    box.animate({width:'100px',opacity:0.8},"slow");
+                });
+                $("#stop").click(function(){
+                    $("#panel").stop();
+                });
+                $("#callback").click(function(){
+                    $(".box2").hide("slow", function(){
+                        console.log('bbbb');
+                        alert("Alert!");
+                    });
+                    console.log('aaaaa');
+                });
+                $("#terace").click(function(){
+                    $("#triplover").attr("href", function(i, origValue){
+                        return origValue + "/taiwan_easywallet/";
+                    });
+                });
+            });
+        </script>
+        <style>
+            div, h2 {
+                display:block;
+            }
+            #flip, #panel {
+                padding: 5px;
+                text-align: center;
+                background-color: #e5eecc;
+                border: solid 1px #c3c3c3;
+                width
+            }
+​
+            #panel{
+                padding: 50px;
+            }
+            .box{
+                background:#98bf21;
+                height:100px;
+                width:100px;
+                position:absolute;
+            }
+            .box2{
+                background:#F2A0A1;
+                height:200px;
+                width:200px;
+                position:absolute;
+            }
+            button{
+                background-color:#FEF263;
+                color:#808080;
+                border-color:#F5FFFA;
+                width:300px;
+                padding:10px 30px;
+                margin:10px 20px;
+                border-radius:5px;
+                font-size:20px;
+            }
+            p{
+                text-align: center;
+            }
+            .nav{
+                display:flex;
+                justify-content:center;
+            }
+            li{
+                list-style:none;
+            }
+            .btn{
+                text-align:center;
+                display: block;
+            }
+            #triplover{
+                text-decoration:none;
+                color:#808080;
+            }
+            #terace{
+                display: block;
+                margin: 0 auto;
+            }
+        </style>
+    </head>
+    <body>
+        <p>IF you click on the "Hide button, I will disappear.</p>
+        <ul class="nav">
+            <li><button id="hide">Hide</button></li>
+            <li><button id="show">Show</button></li>
+        </ul>
+            <br>
+            <div id="flip">Click to slide up here！</div>
+            <div id="panel">Hello World!</div>
+            <div class="btn">
+                    <button id="stop">Stop Sliding</button>
+            </div>
+            <br>
+            <div class="btn">
+                    <button id="start">Start Animation</button>
+            </div>
+            <div class="box"></div>
+            <br>
+            <div class="btn">
+                    <button id="callback">Callback</button>
+            </div>
+            <br>
+            <div class="box2"></div>
+            <br>
+            <h2 class="freedom">Get your independent freedom</h2>
+    </body>
+</html>
